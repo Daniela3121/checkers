@@ -43,6 +43,7 @@ class Game:
             if skipped:
                 self.board.remove(skipped)
             self.change_turn()
+            #pygame.time.delay(100)
         else:
             return False
 
@@ -56,8 +57,10 @@ class Game:
         self.valid_moves = {}
         if self.turn == RED:
             self.turn = WHITE
+            #pygame.time.delay(100)
         else:
             self.turn = RED
+            #pygame.time.delay(100)
 
     def draw_valid_moves(self, moves):
         for move in moves:
@@ -70,3 +73,5 @@ class Game:
     def ai_move(self,board):
         self.board = board
         self.change_turn()
+        
+        

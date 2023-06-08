@@ -3,15 +3,15 @@ import pygame
 RED = (171, 56, 48)
 WHITE = (217, 212, 212)
 
-def minimax(position, depth, max_player, game):
+def minimax2(position, depth, max_player, game):
     if depth == 0 or position.winner() != None:
         return position.evaluate(), position
     
     if max_player:
         maxEval = float('-inf')
         best_move = None
-        for move in get_all_moves(position, WHITE, game):
-            evaluation = minimax(move, depth-1, False, game)[0]
+        for move in get_all_moves(position, RED, game):
+            evaluation = minimax2(move, depth-1, False, game)[0]
             maxEval = max(maxEval, evaluation)
             if maxEval == evaluation:
                 best_move = move
@@ -20,8 +20,8 @@ def minimax(position, depth, max_player, game):
     else:
         minEval = float('inf')
         best_move = None
-        for move in get_all_moves(position, RED, game):
-            evaluation = minimax(move, depth-1, True, game)[0]
+        for move in get_all_moves(position, WHITE, game):
+            evaluation = minimax2(move, depth-1, True, game)[0]
             minEval = min(minEval, evaluation)
             if minEval == evaluation:
                 best_move = move
@@ -60,7 +60,7 @@ def draw_moves(game, board, piece):
     pygame.display.update()
     pygame.time.delay(100)
     
-
+    
     
     
     

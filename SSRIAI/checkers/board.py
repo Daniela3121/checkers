@@ -46,7 +46,7 @@ class Board():
             self.board.append([])
             for col in range(COLS):
                 if col % 2 == ((row +  1) % 2):
-                    if row < 1:
+                    if row < 3:
                         self.board[row].append(Piece(row, col, WHITE))
                     elif row > 4:
                         self.board[row].append(Piece(row, col, RED))
